@@ -642,19 +642,14 @@
 
 <!-- ─────────────────── SalesIQ (Mack) ─────────────────── -->
 <script>
-  // Helper that opens Mack DIRECTLY into a chat conversation,
-  // skipping the SalesIQ home panel ("Hi there!" / Articles / Call us).
-  // Fired by the page's "Start a Chat with Mack" buttons only —
-  // the floating chat bubble in the corner still uses SalesIQ's default behavior.
+  // Helper to programmatically open the Mack chat from the "Start Chat" / "Chat with Mack" buttons
   function openMack() {
     try {
-      if (window.$zoho && $zoho.salesiq && $zoho.salesiq.chat && $zoho.salesiq.chat.start) {
-        // Open the widget AND start a new chat in one shot — bypasses home panel
+      if (window.$zoho && $zoho.salesiq && $zoho.salesiq.floatwindow) {
         $zoho.salesiq.floatwindow.visible('show');
-        $zoho.salesiq.chat.start();
       } else {
-        // Widget hasn't finished loading yet — set a flag to start the chat once ready
-        window._startMackOnReady = true;
+        // Widget hasn't loaded yet — set a flag so it opens once ready
+        window._openMackOnReady = true;
       }
     } catch (e) {
       console.warn('Mack open failed:', e);
@@ -668,20 +663,8 @@ $zoho.salesiq = $zoho.salesiq || {
   widgetcode: "siq19ef0a789951433552814a3d2f568496315945a04baeff8cbe4110e597a44398",
   values: {},
   ready: function() {
-    // Suppress the SalesIQ pre-chat form on this page only.
-    // Brand-level pre-chat form stays intact for Alex on globaltravel-chat-portal.
-    // On AOWS production, replace this with visitor.name()/visitor.email() to pre-populate from MemberPress.
-    try {
-      $zoho.salesiq.field.clear(["siq_name","siq_email","siq_phonenumber"]);
-    } catch (e) {}
-
-    // Only fire if the user clicked a "Start a Chat with Mack" button before the widget was ready.
-    // No automatic engagement — Mack only opens when explicitly requested.
-    if (window._startMackOnReady) {
-      try {
-        $zoho.salesiq.floatwindow.visible('show');
-        $zoho.salesiq.chat.start();
-      } catch (e) {}
+    if (window._openMackOnReady) {
+      try { $zoho.salesiq.floatwindow.visible('show'); } catch (e) {}
     }
   }
 };
