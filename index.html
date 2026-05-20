@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GlobalTravel.com | ITA Knowledge Base</title>
+<meta name="description" content="Global Travel's Independent Travel Agent Knowledge Base — quick links, key resources, and Mack, our AI support concierge." />
+<meta name="theme-color" content="#0b1f4a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0b1f4a;
+    --navy-mid: #1a3566;
+    --navy-soft: #233e6f;
+    --cyan: #00b4d8;
+    --cyan-light: #48cae4;
+    --cyan-pale: #e0f7fc;
+    --white: #ffffff;
+    --bg: #f6f8fc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gold: #d4a017;
+    --radius: 14px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(11,31,74,0.06);
+    --shadow-md: 0 6px 18px rgba(11,31,74,0.08);
+    --shadow-lg: 0 20px 48px rgba(11,31,74,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--gray-800);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ─────────────────────────────── HEADER ─────────────────────────────── */
+  .site-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    border-bottom: 3px solid var(--cyan);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.2px;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--cyan);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+  }
+  .brand-text { color: var(--white); }
+  .brand-text .dot-com { color: var(--cyan-light); font-weight: 500; }
+
+  .header-nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .header-nav a {
+    color: var(--cyan-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .header-nav a:hover { color: var(--white); }
+  .header-cta {
+    background: var(--cyan);
+    color: var(--navy) !important;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-weight: 600 !important;
+    transition: background 0.15s ease;
+  }
+  .header-cta:hover { background: var(--cyan-light); color: var(--navy) !important; }
+
+  /* ─────────────────────────────── HERO ─────────────────────────────── */
+  .hero {
+    background: linear-gradient(170deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy-soft) 100%);
+    color: var(--white);
+    padding: 64px 32px 96px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0,180,216,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,180,216,0.12);
+    border: 1px solid rgba(0,180,216,0.3);
+    color: var(--cyan-light);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+  }
+  .hero h1 .accent { color: var(--cyan); }
+  .hero-sub {
+    font-size: clamp(16px, 1.7vw, 19px);
+    color: rgba(255,255,255,0.82);
+    max-width: 640px;
+    margin-bottom: 36px;
+    line-height: 1.55;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--cyan);
+    color: var(--navy);
+    box-shadow: 0 8px 24px rgba(0,180,216,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--cyan-light);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(0,180,216,0.4);
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+
+  .hero-meta {
+    margin-top: 40px;
+    display: flex;
+    gap: 32px;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-meta .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+  }
+
+  /* ─────────────────────────────── MAIN ─────────────────────────────── */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .section-head h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .section-head p {
+    color: var(--gray-600);
+    font-size: 15px;
+  }
+
+  /* ─────────────── Quick-access cards ─────────────── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-bottom: 64px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 26px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--cyan);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .card:hover::before { transform: scaleX(1); }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--cyan-pale);
+    color: var(--navy);
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .card p {
+    color: var(--gray-600);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .card-arrow {
+    margin-top: auto;
+    padding-top: 14px;
+    color: var(--cyan);
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease;
+  }
+  .card:hover .card-arrow { gap: 10px; }
+
+  /* ─────────────── Highlight: Ask Mack ─────────────── */
+  .mack-banner {
+    background: linear-gradient(120deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    color: var(--white);
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .mack-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(0,180,216,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .mack-banner-content { position: relative; z-index: 1; }
+  .mack-banner h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+  .mack-banner p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    max-width: 560px;
+    line-height: 1.55;
+  }
+  .mack-cta {
+    background: var(--cyan);
+    color: var(--navy);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 24px rgba(0,180,216,0.3);
+  }
+  .mack-cta:hover {
+    background: var(--cyan-light);
+    transform: translateY(-1px);
+  }
+
+  /* ─────────────── Contact strip ─────────────── */
+  .contact-strip {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .contact-item h4 {
+    font-size: 13px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .contact-item p {
+    color: var(--navy);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .contact-item p a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+  .contact-item p a:hover { border-color: var(--cyan); }
+  .contact-item small {
+    display: block;
+    color: var(--gray-600);
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+  }
+
+  /* ─────────────────────────────── FOOTER ─────────────────────────────── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    padding: 40px 32px 32px;
+    border-top: 3px solid var(--cyan);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+  }
+  .footer-inner a {
+    color: var(--cyan-light);
+    text-decoration: none;
+    margin-right: 18px;
+  }
+  .footer-inner a:hover { color: var(--white); }
+
+  /* ─────────────────────────────── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 700px) {
+    .header-inner { padding: 14px 20px; flex-wrap: wrap; }
+    .header-nav { display: none; }
+    .hero { padding: 48px 20px 72px; }
+    main { padding: 48px 20px; }
+    .mack-banner {
+      grid-template-columns: 1fr;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .mack-banner .mack-cta { justify-self: center; }
+    .contact-strip { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────────────── HEADER ─────────────────── -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">🌐</span>
+      <span class="brand-text">GlobalTravel<span class="dot-com">.com</span></span>
+    </a>
+    <nav class="header-nav">
+      <a href="https://aows.globaltravel.com/login/" target="_blank" rel="noopener">Agent Portal</a>
+      <a href="https://aows.globaltravel.com/my-commissions/" target="_blank" rel="noopener">Commissions</a>
+      <a href="https://aows.globaltravel.com/training-marketing/" target="_blank" rel="noopener">Training</a>
+      <a href="#contact" class="header-cta">Contact Support</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ─────────────────── HERO ─────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">🚀 Independent Travel Agent Knowledge Base</span>
+    <h1>Have a question?<br /><span class="accent">Ask Mack.</span></h1>
+    <p class="hero-sub">
+      Mack is our AI support concierge — instantly available to help with commissions, ID cards,
+      login questions, fam trips, training resources, and everything in between. Real answers, real links,
+      no phone queue.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openMack()">
+        💬 Start a Chat with Mack
+      </button>
+      <a href="#quick-access" class="btn-secondary">
+        Browse Resources
+      </a>
+    </div>
+    <div class="hero-meta">
+      <span><span class="dot"></span>Available 24/7</span>
+      <span><span class="dot"></span>Live agents M–F 9am–7pm EST</span>
+      <span><span class="dot"></span>Tickets routed to Member Services</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── MAIN ─────────────────── -->
+<main>
+
+  <section id="quick-access">
+    <div class="section-head">
+      <div>
+        <h2>Quick Access</h2>
+        <p>The most common things agents need — one click away.</p>
+      </div>
+    </div>
+
+    <div class="card-grid">
+
+      <a class="card" href="https://aows.globaltravel.com/login/" target="_blank" rel="noopener">
+        <div class="card-icon">🔑</div>
+        <h3>Agent Portal Login</h3>
+        <p>Sign in to AOWS to access your dashboard, commissions, and tools.</p>
+        <span class="card-arrow">Open portal →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/my-commissions/" target="_blank" rel="noopener">
+        <div class="card-icon">💰</div>
+        <h3>My Commissions</h3>
+        <p>View tracking, submit offline bookings, and check payment status.</p>
+        <span class="card-arrow">Open commissions →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/request-id-card/" target="_blank" rel="noopener">
+        <div class="card-icon">🪪</div>
+        <h3>Agent ID Card</h3>
+        <p>Request your physical ID card or upgrade to ID Card Plus+.</p>
+        <span class="card-arrow">Request card →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/training-marketing/" target="_blank" rel="noopener">
+        <div class="card-icon">🎓</div>
+        <h3>Training & Marketing</h3>
+        <p>Webinars, scripts, branded assets, and marketing materials.</p>
+        <span class="card-arrow">Explore training →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/perks-and-deals/" target="_blank" rel="noopener">
+        <div class="card-icon">🎁</div>
+        <h3>Perks & Deals</h3>
+        <p>Redeem welcome gifts, vacation certificates, and member promotions.</p>
+        <span class="card-arrow">View perks →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/fams/" target="_blank" rel="noopener">
+        <div class="card-icon">✈️</div>
+        <h3>FAM Trips</h3>
+        <p>Familiarization trip opportunities — discover destinations firsthand.</p>
+        <span class="card-arrow">Browse FAMs →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/direct-deposit/" target="_blank" rel="noopener">
+        <div class="card-icon">🏦</div>
+        <h3>Direct Deposit</h3>
+        <p>Set up or update your direct deposit for commission payments.</p>
+        <span class="card-arrow">Set up direct deposit →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/referral-center/" target="_blank" rel="noopener">
+        <div class="card-icon">🤝</div>
+        <h3>Referral Center</h3>
+        <p>Refer new agents and track your referral rewards.</p>
+        <span class="card-arrow">Open referrals →</span>
+      </a>
+
+      <a class="card" href="https://aows.globaltravel.com/faqs/" target="_blank" rel="noopener">
+        <div class="card-icon">❓</div>
+        <h3>Membership Questions</h3>
+        <p>Membership changes, upgrades, cancellation — submit a request.</p>
+        <span class="card-arrow">Membership help →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ─────────────────── Ask Mack banner ─────────────────── -->
+  <section class="mack-banner">
+    <div class="mack-banner-content">
+      <h3>Can't find what you need?</h3>
+      <p>
+        Mack can answer most questions about your portal, commissions, training resources, and how to grow your
+        agent business. If something needs a real person, Mack routes it directly to our Member Services team
+        with your account info attached — no repeating yourself.
+      </p>
+    </div>
+    <button class="mack-cta" onclick="openMack()">
+      💬 Chat with Mack
+    </button>
+  </section>
+
+  <!-- ─────────────────── Contact ─────────────────── -->
+  <section id="contact">
+    <div class="section-head">
+      <div>
+        <h2>Member Services</h2>
+        <p>Talk to a real person, or send us a ticket through Mack.</p>
+      </div>
+    </div>
+
+    <div class="contact-strip">
+      <div class="contact-item">
+        <h4>Phone</h4>
+        <p><a href="tel:18006991725">1-800-699-1725</a></p>
+        <small>Press 1 for membership service, 2 for a rep</small>
+      </div>
+      <div class="contact-item">
+        <h4>Hours</h4>
+        <p>Mon – Fri</p>
+        <small>9:00 AM – 7:00 PM Eastern</small>
+      </div>
+      <div class="contact-item">
+        <h4>Address</h4>
+        <p>2699 Lee Road, Suite 350</p>
+        <small>Winter Park, FL 32789</small>
+      </div>
+      <div class="contact-item">
+        <h4>W-9 / Fulfillment</h4>
+        <p><a href="mailto:fulfillment@gticorporate.com">fulfillment@gticorporate.com</a></p>
+        <small>CLIA #10623900</small>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─────────────────── FOOTER ─────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>© Global Travel · Rezervco LLC · All rights reserved.</div>
+    <div>
+      <a href="https://aows.globaltravel.com/login/" target="_blank" rel="noopener">Agent Portal</a>
+      <a href="https://aows.globaltravel.com/faqs/" target="_blank" rel="noopener">FAQs</a>
+      <a href="https://www.globaltravel.com" target="_blank" rel="noopener">GlobalTravel.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─────────────────── SalesIQ (Mack) ─────────────────── -->
+<script>
+  // Helper to programmatically open the Mack chat from the "Start Chat" / "Chat with Mack" buttons
+  function openMack() {
+    try {
+      if (window.$zoho && $zoho.salesiq && $zoho.salesiq.floatwindow) {
+        $zoho.salesiq.floatwindow.visible('show');
+      } else {
+        // Widget hasn't loaded yet — set a flag so it opens once ready
+        window._openMackOnReady = true;
+      }
+    } catch (e) {
+      console.warn('Mack open failed:', e);
+    }
+  }
+</script>
+
+<script type="text/javascript" id="zsiqchat">
+var $zoho=$zoho || {};
+$zoho.salesiq = $zoho.salesiq || {
+  widgetcode: "siq19ef0a789951433552814a3d2f568496315945a04baeff8cbe4110e597a44398",
+  values: {},
+  ready: function() {
+    if (window._openMackOnReady) {
+      try { $zoho.salesiq.floatwindow.visible('show'); } catch (e) {}
+    }
+  }
+};
+var d=document, s=d.createElement("script");
+s.type="text/javascript";
+s.id="zsiqscript";
+s.defer=true;
+s.src="https://salesiq.zoho.com/widget";
+var t=d.getElementsByTagName("script")[0];
+t.parentNode.insertBefore(s,t);
+</script>
+
+</body>
+</html>
