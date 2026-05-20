@@ -668,6 +668,13 @@ $zoho.salesiq = $zoho.salesiq || {
   widgetcode: "siq19ef0a789951433552814a3d2f568496315945a04baeff8cbe4110e597a44398",
   values: {},
   ready: function() {
+    // Suppress the SalesIQ pre-chat form on this page only.
+    // Brand-level pre-chat form stays intact for Alex on globaltravel-chat-portal.
+    // On AOWS production, replace this with visitor.name()/visitor.email() to pre-populate from MemberPress.
+    try {
+      $zoho.salesiq.field.clear(["siq_name","siq_email","siq_phonenumber"]);
+    } catch (e) {}
+
     // Only fire if the user clicked a "Start a Chat with Mack" button before the widget was ready.
     // No automatic engagement — Mack only opens when explicitly requested.
     if (window._startMackOnReady) {
