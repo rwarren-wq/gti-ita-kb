@@ -642,14 +642,19 @@
 
 <!-- ─────────────────── SalesIQ (Mack) ─────────────────── -->
 <script>
-  // Helper to programmatically open the Mack chat from the "Start Chat" / "Chat with Mack" buttons
+  // Helper that opens Mack DIRECTLY into a chat conversation,
+  // skipping the SalesIQ home panel ("Hi there!" / Articles / Call us).
+  // Fired by the page's "Start a Chat with Mack" buttons only —
+  // the floating chat bubble in the corner still uses SalesIQ's default behavior.
   function openMack() {
     try {
-      if (window.$zoho && $zoho.salesiq && $zoho.salesiq.floatwindow) {
+      if (window.$zoho && $zoho.salesiq && $zoho.salesiq.chat && $zoho.salesiq.chat.start) {
+        // Open the widget AND start a new chat in one shot — bypasses home panel
         $zoho.salesiq.floatwindow.visible('show');
+        $zoho.salesiq.chat.start();
       } else {
-        // Widget hasn't loaded yet — set a flag so it opens once ready
-        window._openMackOnReady = true;
+        // Widget hasn't finished loading yet — set a flag to start the chat once ready
+        window._startMackOnReady = true;
       }
     } catch (e) {
       console.warn('Mack open failed:', e);
@@ -663,8 +668,13 @@ $zoho.salesiq = $zoho.salesiq || {
   widgetcode: "siq19ef0a789951433552814a3d2f568496315945a04baeff8cbe4110e597a44398",
   values: {},
   ready: function() {
-    if (window._openMackOnReady) {
-      try { $zoho.salesiq.floatwindow.visible('show'); } catch (e) {}
+    // Only fire if the user clicked a "Start a Chat with Mack" button before the widget was ready.
+    // No automatic engagement — Mack only opens when explicitly requested.
+    if (window._startMackOnReady) {
+      try {
+        $zoho.salesiq.floatwindow.visible('show');
+        $zoho.salesiq.chat.start();
+      } catch (e) {}
     }
   }
 };
